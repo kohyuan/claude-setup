@@ -1,8 +1,10 @@
-# claude-setup
+# claude-lean
 
-A shareable, machine-level [Claude Code](https://www.claude.com/product/claude-code)
-setup: global permissions, personal memory, custom skills, and slash commands.
-Clone it, run one script, and your `~/.claude/` is configured.
+A lean, shareable baseline for [Claude Code](https://www.claude.com/product/claude-code).
+The opposite of a kitchen-sink config — just the essentials: a safe permission
+floor, light personal memory, and a few custom commands, so Claude Code starts
+clean and stays easy on your context window. Clone it, run one script, and your
+`~/.claude/` is configured.
 
 ```
 claude/
@@ -12,11 +14,18 @@ claude/
   commands/       # custom slash commands (*.md)
 ```
 
+## Why lean
+
+Every line of config costs context and attention on *every* session. This ships
+only what earns its place and leaves the rest to you — add to it as you need,
+rather than starting buried under defaults you'll spend more time disabling than
+using.
+
 ## Install (for users)
 
 ```bash
-git clone https://github.com/kohyuan/claude-setup
-cd claude-setup
+git clone https://github.com/kohyuan/claude-lean
+cd claude-lean
 ./install.sh
 ```
 
@@ -50,8 +59,7 @@ and keep the provided `.gitignore` in place.
 ## Notes
 
 - The `settings.json` deny list is opinionated (blocks `curl`, `git push`, etc.).
-  Adjust to taste — see the comments in that file's section of the README, or
-  move items from `deny` to an `ask` list.
+  Adjust to taste — move items from `deny` to an `ask` list, or remove them.
 - Skills and commands are the parts that could *also* be shipped as a Claude Code
   plugin (`/plugin install`). The global `settings.json` and `CLAUDE.md` cannot
   be distributed via a plugin, which is why this repo uses an install script to
